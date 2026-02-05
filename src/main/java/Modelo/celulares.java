@@ -2,21 +2,22 @@ package Modelo;
 
 public class celulares {
     private int id;
-    private String marca, modelo, sistema_operativo;  
-    private String  gama;
+    private int id_marca;
+    private String modelo, sistema_operativo;  
+    private String gama;
     private int stock;
     private int precio;
 
-    public celulares(int id, String marca, String modelo, String sistema_operativo, String gama, int stock, int precio) {
+    public celulares(int id, int id_marca, String modelo, String sistema_operativo, String gama, int stock, int precio) {
         this.id = id;
-        this.marca = marca;
+        this.id_marca = id_marca;
         this.modelo = modelo;
         this.sistema_operativo = sistema_operativo;
         this.gama = gama;
         this.stock = stock;
         this.precio = precio;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -25,12 +26,12 @@ public class celulares {
         this.id = id;
     }
 
-    public String getMarca() {
-        return marca;
+    public int getId_marca() {
+        return id_marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setId_marca(int id_marca) {
+        this.id_marca = id_marca;
     }
 
     public String getModelo() {
