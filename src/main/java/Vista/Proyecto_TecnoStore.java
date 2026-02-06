@@ -3,6 +3,7 @@ package Vista;
 import java.util.Scanner;
 import Controlador.ConexiónDB;
 import Modelo.Marca;
+import Modelo.celulares;
 
 public class Proyecto_TecnoStore {
 
@@ -25,11 +26,12 @@ public class Proyecto_TecnoStore {
             }
             switch (op) {
                 case 1:
-                    MenuMarcas m = new MenuMarcas();
-                    m.menuMarca();
+                    MenuMarcas mm = new MenuMarcas();
+                    mm.menuMarca();
                     break;
                 case 2:
-
+                    MenuCelulares mc = new MenuCelulares();
+                    mc.menuCelulares();
                     break;
                 case 3:
 
@@ -41,6 +43,6 @@ public class Proyecto_TecnoStore {
                     System.out.println("Gracias por usar nuestro sistema!");
                     break;
             }
-        } while (op != 3);
+        } while (op != 5);
     }
 }

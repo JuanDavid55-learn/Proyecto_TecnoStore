@@ -5,7 +5,7 @@ import MODELO.Gama;
 public class celulares {
     private int id;
     private int id_marca;
-    private String modelo, sistema_operativo;  
+    private String modelo, sistema_operativo;
     private Gama gama;
     private int stock;
     private int precio;
@@ -18,6 +18,10 @@ public class celulares {
         this.gama = gama;
         this.stock = stock;
         this.precio = precio;
+    }
+
+    public celulares() {
+        
     }
 
     public int getId() {
@@ -74,5 +78,20 @@ public class celulares {
 
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return"""
+        *****************************
+        Id:          %s
+        Marca:       %s
+        Modelo:      %s
+        SO:          %s
+        Gama:        %s
+        Stock:       %s
+        Precio:      %s
+        *****************************
+        """.formatted(id, id_marca,modelo,sistema_operativo,gama,stock,precio);
     }
 }

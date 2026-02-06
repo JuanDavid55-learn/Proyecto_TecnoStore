@@ -35,13 +35,14 @@ public class MenuMarcas {
             System.out.println("""
                            ******************************
                                        MARCAS
-                           1.   Registrar
+                           1.   Registrar.
                            2.   Eliminar.
                            3.   Listar.
+                           4.   Regresar.
                            ******************************
                            """);
             op = new Scanner(System.in).nextInt();
-            while (op < 1 || op > 3) {
+            while (op < 1 || op > 4) {
                 System.out.println("Error, opcion no valida");
                 op = new Scanner(System.in).nextInt();
             }
@@ -56,6 +57,6 @@ public class MenuMarcas {
                     listarMarc();
                     break;
             }
-        } while (op != 6);
+        } while (op != 4);
     }
 }

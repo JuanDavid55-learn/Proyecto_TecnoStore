@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class GestionMarcasDAO implements GestionMarcas{
     ConexiónDB c = new ConexiónDB();
 
-
+    
     @Override
     public void RegistrarMarca(Marca m) {
         String sql = "INSERT INTO Marca (nombre) VALUES (?)";
