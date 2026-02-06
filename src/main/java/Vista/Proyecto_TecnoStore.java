@@ -34,7 +34,8 @@ public class Proyecto_TecnoStore {
                     mc.menuCelulares();
                     break;
                 case 3:
-
+                    MenuClientes mcl = new MenuClientes();
+                    mcl.menuClientes();
                     break;
                 case 4:
 

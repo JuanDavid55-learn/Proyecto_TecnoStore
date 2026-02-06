@@ -30,11 +30,11 @@ public class MenuCelulares {
     }
 
     private void actualizarCel() {
-        System.out.println("Ingrese el id del celular a buscar");
+        System.out.println("Ingrese el id del celular a actualizar");
         int id = new Scanner(System.in).nextInt();
         celulares cel = gcls.BuscarCelular(id);
         if (cel != null) {
-            System.out.println("AREA BUSCADA");
+            System.out.println("CELULAR BUSCADO");
             System.out.println(cel);
             System.out.println("""
                                Ingrese lo quiere modificar

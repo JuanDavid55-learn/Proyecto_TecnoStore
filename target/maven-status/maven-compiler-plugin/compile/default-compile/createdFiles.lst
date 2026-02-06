@@ -1,4 +1,5 @@
 Modelo\detalle_ventas.class
+Controlador\GestionClientes.class
 Controlador\GestionMarcas.class
 Controlador\Funciones.class
 Controlador\GestionarCelulares.class
@@ -8,8 +9,10 @@ Vista\MenuMarcas.class
 Modelo\ventas.class
 Modelo\clientes.class
 Controlador\GestiónVentas.class
+Controlador\GestionClientesDAO.class
 Controlador\GestionMarcasDAO.class
 Modelo\Gama.class
 Controlador\GestionarCelularesDAO.class
 Vista\MenuCelulares.class
+Vista\MenuClientes.class
 Vista\Proyecto_TecnoStore.class
