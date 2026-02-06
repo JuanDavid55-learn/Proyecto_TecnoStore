@@ -1,6 +1,6 @@
 package Controlador;
 
-public abstract class GestiónVentasAbstractas {
+public abstract class GestiónVentas {
     
     protected abstract void RegistrarVenta();
     

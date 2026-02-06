@@ -1,7 +1,13 @@
-/home/camper/NetBeansProjects/Proyecto_TecnoStore/src/main/java/Vista/Proyecto_TecnoStore.java
-/home/camper/NetBeansProjects/Proyecto_TecnoStore/src/main/java/Controlador/ConexiÃ³nDB.java
-/home/camper/NetBeansProjects/Proyecto_TecnoStore/src/main/java/Modelo/ventas.java
-/home/camper/NetBeansProjects/Proyecto_TecnoStore/src/main/java/Modelo/celulares.java
-/home/camper/NetBeansProjects/Proyecto_TecnoStore/src/main/java/Controlador/FuncionesAbstractas.java
-/home/camper/NetBeansProjects/Proyecto_TecnoStore/src/main/java/Modelo/clientes.java
-/home/camper/NetBeansProjects/Proyecto_TecnoStore/src/main/java/Modelo/detalle_ventas.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Modelo\Gama.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Controlador\GestiónVentas.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Vista\Proyecto_TecnoStore.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Controlador\ConexiónDB.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Modelo\detalle_ventas.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Modelo\celulares.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Controlador\GestionMarcasDAO.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Vista\MenuMarcas.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Controlador\GestionMarcas.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Modelo\Marca.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Controlador\Funciones.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Modelo\clientes.java
+C:\Users\Juan David\OneDrive\Desktop\Proyecto_java\src\main\java\Modelo\ventas.java

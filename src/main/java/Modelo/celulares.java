@@ -1,14 +1,16 @@
 package Modelo;
 
+import MODELO.Gama;
+
 public class celulares {
     private int id;
     private int id_marca;
     private String modelo, sistema_operativo;  
-    private String gama;
+    private Gama gama;
     private int stock;
     private int precio;
 
-    public celulares(int id, int id_marca, String modelo, String sistema_operativo, String gama, int stock, int precio) {
+    public celulares(int id, int id_marca, String modelo, String sistema_operativo, Gama gama, int stock, int precio) {
         this.id = id;
         this.id_marca = id_marca;
         this.modelo = modelo;
@@ -50,11 +52,11 @@ public class celulares {
         this.sistema_operativo = sistema_operativo;
     }
 
-    public String getGama() {
+    public Gama getGama() {
         return gama;
     }
 
-    public void setGama(String gama) {
+    public void setGama(Gama gama) {
         this.gama = gama;
     }
 

@@ -9,6 +9,10 @@ public class Marca {
         this.nombre = nombre;
     }
 
+    public Marca() {
+        
+    }
+
     public int getId() {
         return id;
     }
@@ -23,5 +27,15 @@ public class Marca {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return """
+               *****************************
+               Id:          %s
+               Nombre:      %s
+               *****************************
+               """.formatted(id, nombre);
     }
 }

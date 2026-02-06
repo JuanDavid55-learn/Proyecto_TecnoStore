@@ -8,7 +8,9 @@ public class ConexiónDB {
     public Connection conectar() {
         Connection c = null;
         try {
-            c = DriverManager.getConnection("jdbc:mysql://localhost:3306/campusan", "campus2023", "campus2023");
+            c = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecnostore_db", "juanda", "juanda");
+//            c=DriverManager.getConnection("jdbc:mysql://"+ip+"/"+database,user,password);
+            System.out.println("Conexion exitosa");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

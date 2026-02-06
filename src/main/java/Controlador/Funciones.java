@@ -1,6 +1,6 @@
 package Controlador;
 
-public abstract class FuncionesAbstractas {
+public abstract class Funciones {
     
     public abstract void validarValorPsitivo();
     
