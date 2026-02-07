@@ -1,13 +1,17 @@
 package Controlador;
 
-public abstract class GestiónVentas {
+import Modelo.celulares;
+import Modelo.detalle_ventas;
+import Modelo.ventas;
+
+public interface GestiónVentas {
+
+    int RegistrarVenta(ventas v);
     
-    protected abstract void RegistrarVenta();
+    double CalcularVenta_Totl_Mas_IVA(ventas v, int id);
     
-    protected abstract void CalcularVentaT();
+    int ActualizarStock(celulares cel, int id);
     
-    protected abstract void ActualizarVentaStock();
-    
-    protected abstract void GuardarVenta ();
+    void GuardarDetalleVenta (detalle_ventas dv);
     
 }

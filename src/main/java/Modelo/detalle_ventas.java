@@ -15,6 +15,10 @@ public class detalle_ventas {
         this.subtotal = subtotal;
     }
 
+    public detalle_ventas() {
+        
+    }
+
     public int getId() {
         return id;
     }

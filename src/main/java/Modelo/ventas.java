@@ -13,6 +13,10 @@ public class ventas {
         this.total = total;
     }
 
+    public ventas() {
+        
+    }
+
     public int getId() {
         return id;
     }

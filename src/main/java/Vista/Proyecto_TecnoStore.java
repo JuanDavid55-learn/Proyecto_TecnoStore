@@ -38,7 +38,8 @@ public class Proyecto_TecnoStore {
                     mcl.menuClientes();
                     break;
                 case 4:
-
+                    MenuVentas mv = new MenuVentas();
+                    mv.menuVentas();
                     break;
                 case 5:
                     System.out.println("Gracias por usar nuestro sistema!");

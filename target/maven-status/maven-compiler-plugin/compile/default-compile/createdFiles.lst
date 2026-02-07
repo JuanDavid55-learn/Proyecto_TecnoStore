@@ -1,3 +1,4 @@
+Vista\MenuVentas.class
 Modelo\detalle_ventas.class
 Controlador\GestionClientes.class
 Controlador\GestionMarcas.class
@@ -6,6 +7,7 @@ Controlador\GestionarCelulares.class
 Modelo\celulares.class
 Modelo\Marca.class
 Vista\MenuMarcas.class
+Controlador\GestiónVentasDAO.class
 Modelo\ventas.class
 Modelo\clientes.class
 Controlador\GestiónVentas.class
