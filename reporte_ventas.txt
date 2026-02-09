@@ -1,0 +1,31 @@
+
+
+REPORTE DE VENTAS
+
+Venta ID: 1 | Cliente: 2 | Fecha: 2016-08-26 | Total: 5000000.0
+
+Venta ID: 2 | Cliente: 2 | Fecha: 2013-09-26 | Total: 5000000.0
+
+Venta ID: 3 | Cliente: 2 | Fecha: 2026-09-28 | Total: 5000000.0
+
+Venta ID: 4 | Cliente: 2 | Fecha: 2026-10-01 | Total: 5000000.0
+
+Venta ID: 5 | Cliente: 2 | Fecha: 2026-10-22 | Total: 5000000.0
+
+Venta ID: 6 | Cliente: 2 | Fecha: 2026-11-01 | Total: 5000000.0
+
+Venta ID: 7 | Cliente: 2 | Fecha: 2026-11-03 | Total: 5000000.0
+Celular ID: 2 | Modelo: GALAXY A22 | Cantidad: 4 | IVA aplicado: 19% | Subtotal: 5950000.0
+
+Venta ID: 8 | Cliente: 2 | Fecha: 2026-09-12 | Total: 3000000.0
+Celular ID: 5 | Modelo: ULTRA CRAK | Cantidad: 4 | IVA aplicado: 19% | Subtotal: 3570000.0
+
+Venta ID: 9 | Cliente: 3 | Fecha: 2026-09-18 | Total: 600000.0
+Celular ID: 3 | Modelo: 20 PRO | Cantidad: 1 | IVA aplicado: 19% | Subtotal: 714000.0
+
+Venta ID: 10 | Cliente: 4 | Fecha: 2026-09-21 | Total: 6000000.0
+Celular ID: 5 | Modelo: ULTRA CRAK | Cantidad: 8 | IVA aplicado: 19% | Subtotal: 7140000.0
+
+Venta ID: 11 | Cliente: 5 | Fecha: 2026-10-02 | Total: 3.0E7
+Celular ID: 4 | Modelo: IPHONE 17 PRO MAX | Cantidad: 10 | IVA aplicado: 19% | Subtotal: 3.57E7
+

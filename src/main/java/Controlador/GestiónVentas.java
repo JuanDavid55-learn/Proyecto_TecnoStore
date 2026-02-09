@@ -3,6 +3,8 @@ package Controlador;
 import Modelo.celulares;
 import Modelo.detalle_ventas;
 import Modelo.ventas;
+import java.util.ArrayList;
+import java.util.Map;
 
 public interface GestiónVentas {
 
@@ -14,4 +16,13 @@ public interface GestiónVentas {
     
     void GuardarDetalleVenta (detalle_ventas dv);
     
+    void generarReporteVentas();
+    
+    void VerReporteVentas();
+    
+    ArrayList<celulares> ListarCelStockBajo();
+
+    ArrayList<String> top3CelularesMasVendidos();
+    
+    Map<String, Double> ventasTotalesPorMes();
 }

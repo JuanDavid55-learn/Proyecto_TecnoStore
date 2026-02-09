@@ -1,5 +1,6 @@
 package Controlador;
 
+import MODELO.Gama;
 import Modelo.celulares;
 import Modelo.detalle_ventas;
 import Modelo.ventas;
@@ -10,6 +11,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class GestiónVentasDAO implements GestiónVentas {
 
@@ -77,6 +85,7 @@ public class GestiónVentasDAO implements GestiónVentas {
         }
     }
 
+    @Override
     public void generarReporteVentas() {
         String sql = """
         SELECT v.id AS venta_id, v.id_cliente, v.fecha,
@@ -85,12 +94,9 @@ public class GestiónVentasDAO implements GestiónVentas {
         LEFT JOIN detalle_ventas d ON v.id = d.id_venta
         LEFT JOIN celulares c ON d.id_celular = c.id;
         """;
-        try (Connection con = c.conectar(); 
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            BufferedWriter bw = new BufferedWriter(new FileWriter("reporte_ventas.txt"))) {
+        try (Connection con = c.conectar(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery(sql); BufferedWriter bw = new BufferedWriter(new FileWriter("reporte_ventas.txt"))) {
 
-            bw.write("    REPORTE DE VENTAS    \n\n");
+            bw.write("\n\nREPORTE DE VENTAS\n\n");
 
             while (rs.next()) {
                 int ventaId = rs.getInt("venta_id");
@@ -108,11 +114,11 @@ public class GestiónVentasDAO implements GestiónVentas {
                         + " | Fecha: " + fecha
                         + " | Total: " + total + "\n");
 
-                // Si hay detalle asociado
                 if (idCelular != 0) {
-                    bw.write("   -> Celular ID: " + idCelular
+                    bw.write("Celular ID: " + idCelular
                             + " | Modelo: " + modelo
                             + " | Cantidad: " + cantidad
+                            + " | IVA aplicado: 19%"
                             + " | Subtotal: " + subtotal + "\n");
                 }
                 bw.write("\n");
@@ -121,7 +127,86 @@ public class GestiónVentasDAO implements GestiónVentas {
             System.out.println("Reporte generado en reporte_ventas.txt");
 
         } catch (Exception e) {
-            System.out.println("Error al generar reporte: " + e.getMessage());
+            System.out.println(e.getMessage());
         }
+    }
+
+    @Override
+    public void VerReporteVentas() {
+        try (BufferedReader br = new BufferedReader(new FileReader("reporte_ventas.txt"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public ArrayList<celulares> ListarCelStockBajo() {
+        ArrayList<celulares> celsStockBajo = new ArrayList<>();
+        try (Connection con = c.conectar()) {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM celulares WHERE stock < 5");
+            while (rs.next()) {
+                Gama gama = Gama.valueOf(rs.getString(5).toUpperCase());
+                celsStockBajo.add(new celulares(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), gama, rs.getInt(6), rs.getInt(7)));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return celsStockBajo;
+    }
+
+    @Override
+    public ArrayList<String> top3CelularesMasVendidos() {
+        ArrayList<String> celsMasVendidos = new ArrayList<>();
+        String sql = """
+        SELECT c.modelo, SUM(d.cantidad) AS total_vendidos
+        FROM detalle_ventas d INNER JOIN celulares c 
+        ON d.id_celular = c.id GROUP BY c.modelo
+        ORDER BY total_vendidos DESC LIMIT 3;
+        """;
+        try (Connection con = c.conectar(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery(sql)) {
+            while (rs.next()) {
+                String modelo = rs.getString("modelo");
+                int vendidos = rs.getInt("total_vendidos");
+                celsMasVendidos.add(modelo + " - Vendidos: " + vendidos);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return celsMasVendidos;
+    }
+
+    @Override
+    public Map<String, Double> ventasTotalesPorMes() {
+        ArrayList<ventas> lista = new ArrayList<>();
+        String sql = "SELECT * FROM ventas";
+
+        try (Connection con = c.conectar(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery(sql)) {
+
+            while (rs.next()) {
+                ventas v = new ventas(
+                        rs.getInt("id"),
+                        rs.getInt("id_cliente"),
+                        rs.getString("fecha"),
+                        rs.getDouble("total")
+                );
+                lista.add(v);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Agrupar por mes usando Stream API
+        Map<String, Double> ventasPorMes = lista.stream()
+                .collect(Collectors.groupingBy(
+                        v -> v.getFecha().substring(0, 7), // YYYY-MM
+                        Collectors.summingDouble(ventas::getTotal)
+                ));
+        return ventasPorMes;
     }
 }

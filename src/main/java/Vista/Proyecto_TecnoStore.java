@@ -1,9 +1,6 @@
 package Vista;
 
 import java.util.Scanner;
-import Controlador.ConexiónDB;
-import Modelo.Marca;
-import Modelo.celulares;
 
 public class Proyecto_TecnoStore {
 
