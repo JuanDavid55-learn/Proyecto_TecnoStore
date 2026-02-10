@@ -1,6 +1,9 @@
 package Modelo;
 
+import java.util.regex.Pattern;
+
 public class clientes {
+
     private int id;
     private String nombre, identificacion, correo, telefono;
 
@@ -13,7 +16,7 @@ public class clientes {
     }
 
     public clientes() {
-        
+
     }
 
     public int getId() {
@@ -58,14 +61,12 @@ public class clientes {
 
     @Override
     public String toString() {
-        return"""
-        *****************************
+        return """
         Id:              %s
         Nombre:          %s
         Identificacion:  %s
         Correo:          %s
         Telefono:        %s
-        *****************************
-        """.formatted(id, nombre,identificacion,correo,telefono);
+        """.formatted(id, nombre, identificacion, correo, telefono);
     }
 }

@@ -9,21 +9,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class GestionClientesDAO implements GestionClientes{
+public class GestionClientesDAO implements GestionClientes {
+
     ConexiónDB c = new ConexiónDB();
-    
+
     @Override
     public void RegistrarCliente(clientes cli) {
         String sql = "INSERT INTO clientes (nombre, identificacion, correo, telefono) VALUES (?,?,?,?)";
 
-        try(Connection con = c.conectar()){
+        try (Connection con = c.conectar()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, cli.getNombre());
             ps.setString(2, cli.getIdentificacion());
             ps.setString(3, cli.getCorreo());
             ps.setString(4, cli.getTelefono());
             ps.executeUpdate();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -31,7 +32,7 @@ public class GestionClientesDAO implements GestionClientes{
     @Override
     public void ActualizarCliente(clientes cli, int id) {
         String sql = "UPDATE clientes SET nombre=?, identificacion=?, correo=?, telefono=? WHERE id=?";
-        
+
         try (Connection con = c.conectar()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, cli.getNombre());
@@ -84,7 +85,7 @@ public class GestionClientesDAO implements GestionClientes{
         try (Connection con = c.conectar()) {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM clientes WHERE id=" + id);
-            while (rs.next()) {                
+            while (rs.next()) {
                 cli.setId(rs.getInt(1));
                 cli.setNombre(rs.getString(2));
                 cli.setIdentificacion(rs.getString(3));
@@ -95,5 +96,22 @@ public class GestionClientesDAO implements GestionClientes{
             System.out.println(e.getMessage());
         }
         return cli;
-    }    
+    }
+
+    @Override
+    public ArrayList<String> ListarClientesResum() {
+        ArrayList<String> listCliResm = new ArrayList<>();
+        try (Connection con = c.conectar()) {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT id, nombre FROM clientes");
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nombre = rs.getString("nombre");
+                listCliResm.add("ID: " + id + "|  Nombre: " + nombre +"\n");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return listCliResm;
+    }
 }

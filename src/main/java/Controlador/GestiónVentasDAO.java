@@ -46,6 +46,11 @@ public class GestiónVentasDAO implements GestiónVentas {
     }
 
     @Override
+    public double CalcularTotal(celulares cel, int cantidadVendida) {
+        return cel.getPrecio() * cantidadVendida;
+    }
+
+    @Override
     public double CalcularVenta_Totl_Mas_IVA(ventas v, int id) {
         double totalConIVA = v.getTotal() * 1.19;
         return totalConIVA;
@@ -53,9 +58,18 @@ public class GestiónVentasDAO implements GestiónVentas {
 
     @Override
     public int ActualizarStock(celulares cel, int id) {
-        int cantidadVendida = new Scanner(System.in).nextInt();
-        int nuevoStock = cel.getStock() - cantidadVendida;
-
+        int cantidadVendida;
+        int nuevoStock;
+        while (true) {
+            System.out.println("Ingrese la cantidad vendida:");
+            cantidadVendida = new Scanner(System.in).nextInt();
+            nuevoStock = cel.getStock() - cantidadVendida;
+            if (nuevoStock < 0) {
+                System.out.println("Error: la cantidad supera el stock disponible (" + cel.getStock() + "). Intente nuevamente.");
+            } else {
+                break;
+            }
+        }
         String sql = "UPDATE celulares SET stock=? WHERE id=?";
         try (Connection con = c.conectar()) {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -182,11 +196,10 @@ public class GestiónVentasDAO implements GestiónVentas {
 
     @Override
     public Map<String, Double> ventasTotalesPorMes() {
-        ArrayList<ventas> lista = new ArrayList<>();
-        String sql = "SELECT * FROM ventas";
-
-        try (Connection con = c.conectar(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery(sql)) {
-
+        ArrayList<ventas> totalXMes = new ArrayList<>();
+        try (Connection con = c.conectar()) {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM ventas");
             while (rs.next()) {
                 ventas v = new ventas(
                         rs.getInt("id"),
@@ -194,19 +207,15 @@ public class GestiónVentasDAO implements GestiónVentas {
                         rs.getString("fecha"),
                         rs.getDouble("total")
                 );
-                lista.add(v);
+                totalXMes.add(v);
             }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-        // Agrupar por mes usando Stream API
-        Map<String, Double> ventasPorMes = lista.stream()
-                .collect(Collectors.groupingBy(
-                        v -> v.getFecha().substring(0, 7), // YYYY-MM
-                        Collectors.summingDouble(ventas::getTotal)
-                ));
+        Map<String, Double> ventasPorMes = totalXMes.stream()
+                .collect(Collectors.groupingBy(v -> v.getFecha().substring(0, 7), Collectors.summingDouble(ventas::getTotal)));
         return ventasPorMes;
     }
 }

@@ -10,6 +10,8 @@ public interface GestiónVentas {
 
     int RegistrarVenta(ventas v);
     
+    double CalcularTotal(celulares cel, int cantidadVendida);
+    
     double CalcularVenta_Totl_Mas_IVA(ventas v, int id);
     
     int ActualizarStock(celulares cel, int id);

@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class GestionarCelularesDAO implements GestionarCelulares{
@@ -101,5 +102,36 @@ public class GestionarCelularesDAO implements GestionarCelulares{
             System.out.println(e.getMessage());
         }
         return cel;
+    }
+    
+    @Override
+    public ArrayList<String> ListarCelularesResum() {
+        ArrayList<String> listCelsResm = new ArrayList<>();
+        try (Connection con = c.conectar()) {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT id, modelo FROM celulares");
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String modelo = rs.getString("modelo");
+                listCelsResm.add("ID: " + id + "|  Modelo: " + modelo +"\n");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return listCelsResm;
+    }
+    
+    @Override
+    public int validarValorPsitivoPrecio() {
+        int precioCel = 0;
+        while (true) {
+            System.out.println("Ingrese el precio del celular:");
+            precioCel = new Scanner(System.in).nextInt();
+            if (precioCel <= 0) {
+                System.out.println("Por favor no registrar menor o igual a 0 el precio");
+            } else {
+                return precioCel;
+            }
+        }
     }
 }

@@ -83,7 +83,6 @@ public class celulares {
     @Override
     public String toString() {
         return"""
-        *****************************
         Id:          %s
         Marca:       %s
         Modelo:      %s
@@ -91,7 +90,6 @@ public class celulares {
         Gama:        %s
         Stock:       %s
         Precio:      %s
-        *****************************
         """.formatted(id, id_marca,modelo,sistema_operativo,gama,stock,precio);
     }
 }

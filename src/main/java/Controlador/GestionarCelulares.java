@@ -14,4 +14,8 @@ public interface GestionarCelulares {
     ArrayList<celulares> ListarCelulares();
 
     celulares BuscarCelular(int id);
+    
+    ArrayList<String> ListarCelularesResum();
+    
+    int validarValorPsitivoPrecio();
 }

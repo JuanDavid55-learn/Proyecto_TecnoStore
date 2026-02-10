@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.GestionClientes;
+import Controlador.GestionClientesDAO;
 import Controlador.GestiónVentas;
 import Controlador.GestiónVentasDAO;
 import Controlador.GestionarCelulares;
@@ -9,7 +11,7 @@ import Modelo.celulares;
 import Modelo.detalle_ventas;
 import Modelo.ventas;
 import java.util.ArrayList;
-import java.util.Map;
+import java.text.DecimalFormat;
 
 public class MenuVentas {
 
@@ -17,29 +19,25 @@ public class MenuVentas {
 
     private void registrarVenta() {
         GestionarCelulares gcls = new GestionarCelularesDAO();
+        GestionClientes gcli = new GestionClientesDAO();
         ventas v = new ventas();
         detalle_ventas dv = new detalle_ventas();
-
-        // registrar la venta        
+ 
+        System.out.println(gcli.ListarClientesResum());
         System.out.println("Ingrese el id del cliente: ");
         v.setId_cliente(new Scanner(System.in).nextInt());
         System.out.println("Ingrese la fecha (YYYY-MM-DD): ");
         v.setFecha(new Scanner(System.in).nextLine());
-        System.out.println("Ingrese el total: ");
-        v.setTotal(new Scanner(System.in).nextDouble());
-        int idVenta = gv.RegistrarVenta(v);
-
-        //calcular el subtotalde detalle venta mas e IVA
-        double subtotalConIVA = gv.CalcularVenta_Totl_Mas_IVA(v, idVenta);
-
-        //actualizar el stock del celular
+        System.out.println(gcls.ListarCelularesResum());
         System.out.println("Ingrese el id del celular vendido:");
         int idCelular = new Scanner(System.in).nextInt();
         celulares cel = gcls.BuscarCelular(idCelular);
-        System.out.println("Ingrese la cantidad vendida:");
         int cantidadVendida = gv.ActualizarStock(cel, idCelular);
+        double total = gv.CalcularTotal(cel, cantidadVendida);
+        v.setTotal(total);
+        int idVenta = gv.RegistrarVenta(v);
+        double subtotalConIVA = gv.CalcularVenta_Totl_Mas_IVA(v, idVenta);
 
-        //regsitrar el detalle venta
         dv.setId_venta(idVenta);
         dv.setId_celular(idCelular);
         dv.setCantidad(cantidadVendida);
@@ -68,10 +66,12 @@ public class MenuVentas {
     }
 
     private void VentasXMes() {
-        System.out.println("\nVentas totales por mes:");
-        gv.ventasTotalesPorMes().forEach((mes, total)
-                -> System.out.println(mes + " -> " + total));
+        DecimalFormat df = new DecimalFormat("#,###.##");
 
+        System.out.println("\nVentas totales por mes:");
+        gv.ventasTotalesPorMes().forEach((mes, total) -> {
+            System.out.println(mes + " -> " + df.format(total));
+        });
     }
 
     public void menuVentas() {

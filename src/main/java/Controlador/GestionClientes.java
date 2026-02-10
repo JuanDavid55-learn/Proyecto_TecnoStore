@@ -14,4 +14,6 @@ public interface GestionClientes {
     ArrayList<clientes> ListarClientes();
 
     clientes BuscarCliente(int id);
+    
+    ArrayList<String> ListarClientesResum();
 }

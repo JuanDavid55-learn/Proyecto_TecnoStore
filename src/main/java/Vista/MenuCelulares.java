@@ -1,8 +1,11 @@
 package Vista;
 
+import Controlador.GestionMarcas;
+import Controlador.GestionMarcasDAO;
 import Controlador.GestionarCelulares;
 import Controlador.GestionarCelularesDAO;
 import MODELO.Gama;
+import Modelo.Marca;
 import Modelo.celulares;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +15,12 @@ public class MenuCelulares {
 
     private void registrarCel() {
         celulares celr = new celulares();
+        GestionMarcas gm = new GestionMarcasDAO();
         
+        ArrayList<Marca> marcas = gm.ListarMarcas();
+        for (Marca a : marcas) {
+            System.out.println(a);
+        }
         System.out.println("Ingrese la marca del celular: ");
         celr.setId_marca(new Scanner(System.in).nextInt());
         System.out.println("Ingrese el modelo del celular:");
@@ -24,8 +32,7 @@ public class MenuCelulares {
         celr.setGama(gama);
         System.out.println("Ingrese la cantidad del celular:");
         celr.setStock(new Scanner(System.in).nextInt());
-        System.out.println("Ingrese el precio del celular:");
-        celr.setPrecio(new Scanner(System.in).nextInt());
+        celr.setPrecio(gcls.validarValorPsitivoPrecio());
         gcls.RegistrarCelular(celr);
     }
 

@@ -29,3 +29,14 @@ Celular ID: 5 | Modelo: ULTRA CRAK | Cantidad: 8 | IVA aplicado: 19% | Subtotal:
 Venta ID: 11 | Cliente: 5 | Fecha: 2026-10-02 | Total: 3.0E7
 Celular ID: 4 | Modelo: IPHONE 17 PRO MAX | Cantidad: 10 | IVA aplicado: 19% | Subtotal: 3.57E7
 
+Venta ID: 12 | Cliente: 2 | Fecha: 2026-10-12 | Total: 4000000.0
+Celular ID: 4 | Modelo: IPHONE 17 PRO MAX | Cantidad: 2 | IVA aplicado: 19% | Subtotal: 4760000.0
+
+Venta ID: 14 | Cliente: 3 | Fecha: 2026-11-21 | Total: 700000.0
+
+Venta ID: 15 | Cliente: 3 | Fecha: 2026-12-01 | Total: 1.0E7
+Celular ID: 2 | Modelo: GALAXY A22 | Cantidad: 2 | IVA aplicado: 19% | Subtotal: 1.19E7
+
+Venta ID: 16 | Cliente: 3 | Fecha: 2026-11-14 | Total: 600000.0
+Celular ID: 3 | Modelo: 20 PRO | Cantidad: 1 | IVA aplicado: 19% | Subtotal: 714000.0
+
