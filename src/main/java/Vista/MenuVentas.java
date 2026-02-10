@@ -1,5 +1,6 @@
 package Vista;
 
+import static Controlador.Funciones.validacion;
 import Controlador.GestionClientes;
 import Controlador.GestionClientesDAO;
 import Controlador.GestiónVentas;
@@ -85,11 +86,7 @@ public class MenuVentas {
                            3.   Regresar.
                            ******************************
                            """);
-            op = new Scanner(System.in).nextInt();
-            while (op < 1 || op > 3) {
-                System.out.println("Error, opcion no valida");
-                op = new Scanner(System.in).nextInt();
-            }
+            op = validacion(1, 3, "Eliga una opcion.");
             switch (op) {
                 case 1:
                     registrarVenta();
@@ -107,11 +104,7 @@ public class MenuVentas {
                            5.   Regresar.
                            ******************************
                            """);
-                        opR = new Scanner(System.in).nextInt();
-                        while (op < 1 || op > 4) {
-                            System.out.println("Error, opcion no valida");
-                            op = new Scanner(System.in).nextInt();
-                        }
+                        opR = validacion(1, 5, "Eliga una opcion.");
                         switch (opR) {
                             case 1:
                                 verReportes();

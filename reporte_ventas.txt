@@ -2,41 +2,15 @@
 
 REPORTE DE VENTAS
 
-Venta ID: 1 | Cliente: 2 | Fecha: 2016-08-26 | Total: 5000000.0
+Venta ID: 1 | Cliente: 1 | Fecha: 2026-02-01 | Total: 4400000.0
+Celular ID: 1 | Modelo: Galaxy S25 | Cantidad: 2 | IVA aplicado: 19% | Subtotal: 4400000.0
 
-Venta ID: 2 | Cliente: 2 | Fecha: 2013-09-26 | Total: 5000000.0
+Venta ID: 2 | Cliente: 2 | Fecha: 2026-02-02 | Total: 4500000.0
+Celular ID: 2 | Modelo: iPhone 16 | Cantidad: 1 | IVA aplicado: 19% | Subtotal: 4500000.0
 
-Venta ID: 3 | Cliente: 2 | Fecha: 2026-09-28 | Total: 5000000.0
+Venta ID: 3 | Cliente: 3 | Fecha: 2026-02-03 | Total: 2400000.0
+Celular ID: 3 | Modelo: Redmi Note 13 | Cantidad: 2 | IVA aplicado: 19% | Subtotal: 2400000.0
 
-Venta ID: 4 | Cliente: 2 | Fecha: 2026-10-01 | Total: 5000000.0
-
-Venta ID: 5 | Cliente: 2 | Fecha: 2026-10-22 | Total: 5000000.0
-
-Venta ID: 6 | Cliente: 2 | Fecha: 2026-11-01 | Total: 5000000.0
-
-Venta ID: 7 | Cliente: 2 | Fecha: 2026-11-03 | Total: 5000000.0
-Celular ID: 2 | Modelo: GALAXY A22 | Cantidad: 4 | IVA aplicado: 19% | Subtotal: 5950000.0
-
-Venta ID: 8 | Cliente: 2 | Fecha: 2026-09-12 | Total: 3000000.0
-Celular ID: 5 | Modelo: ULTRA CRAK | Cantidad: 4 | IVA aplicado: 19% | Subtotal: 3570000.0
-
-Venta ID: 9 | Cliente: 3 | Fecha: 2026-09-18 | Total: 600000.0
-Celular ID: 3 | Modelo: 20 PRO | Cantidad: 1 | IVA aplicado: 19% | Subtotal: 714000.0
-
-Venta ID: 10 | Cliente: 4 | Fecha: 2026-09-21 | Total: 6000000.0
-Celular ID: 5 | Modelo: ULTRA CRAK | Cantidad: 8 | IVA aplicado: 19% | Subtotal: 7140000.0
-
-Venta ID: 11 | Cliente: 5 | Fecha: 2026-10-02 | Total: 3.0E7
-Celular ID: 4 | Modelo: IPHONE 17 PRO MAX | Cantidad: 10 | IVA aplicado: 19% | Subtotal: 3.57E7
-
-Venta ID: 12 | Cliente: 2 | Fecha: 2026-10-12 | Total: 4000000.0
-Celular ID: 4 | Modelo: IPHONE 17 PRO MAX | Cantidad: 2 | IVA aplicado: 19% | Subtotal: 4760000.0
-
-Venta ID: 14 | Cliente: 3 | Fecha: 2026-11-21 | Total: 700000.0
-
-Venta ID: 15 | Cliente: 3 | Fecha: 2026-12-01 | Total: 1.0E7
-Celular ID: 2 | Modelo: GALAXY A22 | Cantidad: 2 | IVA aplicado: 19% | Subtotal: 1.19E7
-
-Venta ID: 16 | Cliente: 3 | Fecha: 2026-11-14 | Total: 600000.0
-Celular ID: 3 | Modelo: 20 PRO | Cantidad: 1 | IVA aplicado: 19% | Subtotal: 714000.0
+Venta ID: 4 | Cliente: 4 | Fecha: 2026-02-04 | Total: 600000.0
+Celular ID: 5 | Modelo: Redmi A3 | Cantidad: 1 | IVA aplicado: 19% | Subtotal: 600000.0
 

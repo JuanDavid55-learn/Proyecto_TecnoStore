@@ -1,5 +1,6 @@
 package Vista;
 
+import static Controlador.Funciones.validacion;
 import Controlador.GestionMarcas;
 import Controlador.GestionMarcasDAO;
 import Controlador.GestionarCelulares;
@@ -37,6 +38,7 @@ public class MenuCelulares {
     }
 
     private void actualizarCel() {
+        listarCels();
         System.out.println("Ingrese el id del celular a actualizar");
         int id = new Scanner(System.in).nextInt();
         celulares cel = gcls.BuscarCelular(id);
@@ -48,11 +50,7 @@ public class MenuCelulares {
                                1.   Stock
                                2.   Precio
                                """);
-            int op = new Scanner(System.in).nextInt();
-            while (op < 1 || op > 2) {
-                System.out.println("Error, opcion no valida");
-                op = new Scanner(System.in).nextInt();
-            }
+            int op = validacion(1, 2, "Eliga una opcion.");
             switch (op) {
                 case 1:
                     System.out.println("Ingrese el nuevo stock");
@@ -70,6 +68,7 @@ public class MenuCelulares {
     }
     
     private void eliminarCel() {
+        listarCels();
         System.out.println("Ingrese el id del celular a eliminar");
         int id = new Scanner(System.in).nextInt();
         gcls.EliminarCelular(id);
@@ -107,11 +106,7 @@ public class MenuCelulares {
                            6.   Regresar.
                            ******************************
                            """);
-            op = new Scanner(System.in).nextInt();
-            while (op < 1 || op > 6) {
-                System.out.println("Error, opcion no valida");
-                op = new Scanner(System.in).nextInt();
-            }
+            op = validacion(1, 6, "Eliga una opcion.");
             switch (op) {
                 case 1:
                     registrarCel();

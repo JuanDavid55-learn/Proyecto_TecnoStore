@@ -1,5 +1,6 @@
 package Vista;
 
+import static Controlador.Funciones.validacion;
 import Controlador.GestionClientes;
 import Controlador.GestionClientesDAO;
 import Modelo.clientes;
@@ -24,6 +25,7 @@ public class MenuClientes {
     }
 
     private void actualizarCli() {
+        listarCli();
         System.out.println("Ingrese el id del cliente a actualizar");
         int id = new Scanner(System.in).nextInt();
         clientes cli = gcls.BuscarCliente(id);
@@ -37,11 +39,7 @@ public class MenuClientes {
                                3.   Correo
                                4.   Telefono
                                """);
-            int op = new Scanner(System.in).nextInt();
-            while (op < 1 || op > 4) {
-                System.out.println("Error, opcion no valida");
-                op = new Scanner(System.in).nextInt();
-            }
+            int op = validacion(1, 4, "Eliga una opcion.");
             switch (op) {
                 case 1:
                     System.out.println("Ingrese el nuevo nombre");
@@ -67,6 +65,7 @@ public class MenuClientes {
     }
     
     private void eliminarCli() {
+        listarCli();
         System.out.println("Ingrese el id del cliente a eliminar");
         int id = new Scanner(System.in).nextInt();
         gcls.EliminarCliente(id);
@@ -104,11 +103,7 @@ public class MenuClientes {
                            6.   Regresar.
                            ******************************
                            """);
-            op = new Scanner(System.in).nextInt();
-            while (op < 1 || op > 6) {
-                System.out.println("Error, opcion no valida");
-                op = new Scanner(System.in).nextInt();
-            }
+            op = validacion(1, 6, "Eliga una opcion.");
             switch (op) {
                 case 1:
                     registrarCli();

@@ -1,6 +1,6 @@
 package Vista;
 
-import java.util.Scanner;
+import static Controlador.Funciones.validacion;
 
 public class Proyecto_TecnoStore {
 
@@ -16,11 +16,7 @@ public class Proyecto_TecnoStore {
                            5.   Salir.
                            ******************************
                            """);
-            op = new Scanner(System.in).nextInt();
-            while (op < 1 || op > 5) {
-                System.out.println("Error, opcion no valida");
-                op = new Scanner(System.in).nextInt();
-            }
+            op = validacion(1, 5, "Eliga una opcion.");
             switch (op) {
                 case 1:
                     MenuMarcas mm = new MenuMarcas();

@@ -1,5 +1,6 @@
 package Vista;
 
+import static Controlador.Funciones.validacion;
 import Controlador.GestionMarcas;
 import Controlador.GestionMarcasDAO;
 import Modelo.Marca;
@@ -17,6 +18,7 @@ public class MenuMarcas {
     }
 
     private void eliminarMarc() {
+        listarMarc();
         System.out.println("Ingrese el id de la marca a eliminar");
         int id = new Scanner(System.in).nextInt();
         gm.EliminarMarca(id);
@@ -41,11 +43,7 @@ public class MenuMarcas {
                            4.   Regresar.
                            ******************************
                            """);
-            op = new Scanner(System.in).nextInt();
-            while (op < 1 || op > 4) {
-                System.out.println("Error, opcion no valida");
-                op = new Scanner(System.in).nextInt();
-            }
+            op = validacion(1, 4, "Eliga una opcion.");
             switch (op) {
                 case 1:
                     registrarMarc();
