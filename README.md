@@ -496,7 +496,7 @@ CREATE TABLE Celulares (
 CREATE TABLE Clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    identificacion VARCHAR(50) NOT NULL,
+    identificacion VARCHAR(50) NOT NULL UNIQUE,
     correo VARCHAR(100),
     telefono VARCHAR(20)
 );
@@ -559,3 +559,13 @@ INSERT INTO detalle_ventas (id, id_venta, id_celular, cantidad, subtotal) VALUES
 (4, 4, 5, 1, 600000);
 
 ```
+### Cosas que podrían mejorar
+
+- Optimización y expansión de la base de datos
+Ampliar y normalizar la estructura actual para soportar mayor volumen de información, además de optimizar consultas e implementar índices que mejoren el rendimiento general.
+
+- Manejo avanzado de errores
+Implementar una gestión de excepciones más robusta con validaciones específicas, excepciones personalizadas para aumentar la estabilidad y facilitar el mantenimiento.
+
+- Implementación de hilos
+Usar hilos para ejecutar tareas en segundo plano, como procesos de base de datos o cálculos, evitando bloqueos del flujo principal y mejorando la eficiencia del sistema.
