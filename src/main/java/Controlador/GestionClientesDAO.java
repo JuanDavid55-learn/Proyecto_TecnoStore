@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class GestionClientesDAO implements GestionClientes {
@@ -107,11 +108,49 @@ public class GestionClientesDAO implements GestionClientes {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String nombre = rs.getString("nombre");
-                listCliResm.add("ID: " + id + "|  Nombre: " + nombre +"\n");
+                listCliResm.add("ID: " + id + "|  Nombre: " + nombre + "\n");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return listCliResm;
+    }
+
+    @Override
+    public String pedirCorreoFormato() {
+        String correo;
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        while (true) {
+            System.out.println("Ingrese el correo del cliente:");
+            correo = new Scanner(System.in).nextLine();
+            if (correo.matches(regex)) {
+                break;
+            } else {
+                System.out.println("Formato invalido, intentelo de nuevo.");
+            }
+        }
+        return correo;
+    }
+
+    @Override
+    public String validarIdenUnica() {
+        String identificacion;
+        while (true) {
+            System.out.print("Ingrese la identificación del cliente: ");
+            identificacion = new Scanner(System.in).nextLine();
+            try (Connection con = c.conectar()) {
+                PreparedStatement ps = con.prepareStatement("SELECT 1 FROM clientes WHERE identificacion = ? LIMIT 1");
+                ps.setString(1, identificacion);
+                ResultSet rs = ps.executeQuery();
+                if (!rs.next()) {
+                    return identificacion;
+                } else {
+                    System.out.println("Identificacion registrada, intente de nuevo.");
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+                return null;
+            }
+        }
     }
 }

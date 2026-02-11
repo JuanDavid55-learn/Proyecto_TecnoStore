@@ -16,4 +16,8 @@ public interface GestionClientes {
     clientes BuscarCliente(int id);
     
     ArrayList<String> ListarClientesResum();
+    
+    String pedirCorreoFormato();
+    
+    String validarIdenUnica();
 }

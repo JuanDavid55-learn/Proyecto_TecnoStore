@@ -15,10 +15,8 @@ public class MenuClientes {
         
         System.out.println("Ingrese el nombre del cliente: ");
         client.setNombre(new Scanner(System.in).nextLine());
-        System.out.println("Ingrese la identificacion del cliente:");
-        client.setIdentificacion(new Scanner(System.in).nextLine());
-        System.out.println("Ingrese el correo del cliente:");
-        client.setCorreo(new Scanner(System.in).nextLine());
+        client.setIdentificacion(gcls.validarIdenUnica());
+        client.setCorreo(gcls.pedirCorreoFormato());
         System.out.println("Ingrese el telefono del cliente:");
         client.setTelefono(new Scanner(System.in).nextLine());
         gcls.RegistrarCliente(client);
