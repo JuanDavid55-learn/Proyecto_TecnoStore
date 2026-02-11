@@ -134,4 +134,18 @@ public class GestionarCelularesDAO implements GestionarCelulares{
             }
         }
     }
+    
+    @Override
+    public int validarValorPsitivoStock() {
+        int stock = 0;
+        while (true) {
+            System.out.println("Ingrese el stock del celular:");
+            stock = new Scanner(System.in).nextInt();
+            if (stock < 0) {
+                System.out.println("Por favor no dejar menor a 0 el stock");
+            } else {
+                return stock;
+            }
+        }
+    }
 }

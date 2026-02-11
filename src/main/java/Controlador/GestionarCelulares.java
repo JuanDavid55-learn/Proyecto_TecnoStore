@@ -18,4 +18,6 @@ public interface GestionarCelulares {
     ArrayList<String> ListarCelularesResum();
     
     int validarValorPsitivoPrecio();
+    
+    int validarValorPsitivoStock();
 }

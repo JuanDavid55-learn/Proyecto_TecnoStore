@@ -28,11 +28,10 @@ public class MenuCelulares {
         celr.setModelo(new Scanner(System.in).nextLine());
         System.out.println("Ingrese el sistema operativo:");
         celr.setSistema_operativo(new Scanner(System.in).nextLine());
-        System.out.println("Ingrese el tipo de gama:");
+        System.out.println("Ingrese el tipo de gama: (BAJA / MEDIA / ALTA)");
         Gama gama = Gama.valueOf(new Scanner(System.in).nextLine());
         celr.setGama(gama);
-        System.out.println("Ingrese la cantidad del celular:");
-        celr.setStock(new Scanner(System.in).nextInt());
+        celr.setStock(gcls.validarValorPsitivoStock());
         celr.setPrecio(gcls.validarValorPsitivoPrecio());
         gcls.RegistrarCelular(celr);
     }
@@ -53,12 +52,10 @@ public class MenuCelulares {
             int op = validacion(1, 2, "Eliga una opcion.");
             switch (op) {
                 case 1:
-                    System.out.println("Ingrese el nuevo stock");
-                    cel.setStock(new Scanner(System.in).nextInt());
+                    cel.setStock(gcls.validarValorPsitivoStock());
                     break;
                 case 2:
-                    System.out.println("Ingrese el nuevo precio");
-                    cel.setPrecio(new Scanner(System.in).nextInt());
+                    cel.setPrecio(gcls.validarValorPsitivoPrecio());
                     break;
             }
             gcls.ActualizarCelular(cel, id);

@@ -16,7 +16,7 @@ public class GestionMarcasDAO implements GestionMarcas{
     
     @Override
     public void RegistrarMarca(Marca m) {
-        String sql = "INSERT INTO Marca (nombre) VALUES (?)";
+        String sql = "INSERT INTO marcas (nombre) VALUES (?)";
 
         try(Connection con = c.conectar()){
             PreparedStatement ps = con.prepareStatement(sql);
@@ -27,12 +27,12 @@ public class GestionMarcasDAO implements GestionMarcas{
         }
     }
 
-
+    
     @Override
     public void EliminarMarca(int id) {
         try (Connection con = c.conectar()) {
             //La usamos cuando queremos hacer una inserción o modificacion a la base de datos.
-            PreparedStatement ps = con.prepareStatement("delete from Marca where id=?");
+            PreparedStatement ps = con.prepareStatement("delete from marcas where id=?");
             ps.setInt(1, id);
             int op = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el area?", null, JOptionPane.YES_NO_OPTION);
             if (op == 0) {
@@ -45,15 +45,15 @@ public class GestionMarcasDAO implements GestionMarcas{
             System.out.println(e.getMessage());
         }
     }
-
-
+    
+    
     @Override
     public ArrayList<Marca> ListarMarcas() {
         ArrayList<Marca> marcas = new ArrayList<>();
         try (Connection con = c.conectar()) {
             //creo el statement para que quede listo cuando quiera escribir en sql
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from marca");
+            ResultSet rs = st.executeQuery("select * from marcas");
             while (rs.next()) {
                 marcas.add(new Marca(rs.getInt(1), rs.getString(2)));
             }

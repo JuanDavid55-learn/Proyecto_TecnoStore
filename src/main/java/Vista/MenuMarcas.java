@@ -23,7 +23,7 @@ public class MenuMarcas {
         int id = new Scanner(System.in).nextInt();
         gm.EliminarMarca(id);
     }
-
+    
     private void listarMarc() {
         ArrayList<Marca> marcas = gm.ListarMarcas();
         for (Marca a : marcas) {
