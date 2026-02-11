@@ -474,7 +474,7 @@ Es muy importante tener cuidado con el orden de las tablas, pues algunas de esta
 CREATE DATABASE tecnostore_db;
 USE tecnostore_db;
 
--- Tabla Marca
+-- Tabla Marcas
 CREATE TABLE Marcas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL
@@ -483,9 +483,9 @@ CREATE TABLE Marcas (
 -- Tabla Celulares
 CREATE TABLE Celulares (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_marca INT NOT NULL,
+    id_marca INT,
     modelo VARCHAR(100) NOT NULL,
-    sistema_operativo VARCHAR(50),
+    sistema_operativo VARCHAR(50) NOT NULL,
     gama ENUM('BAJA','MEDIA','ALTA') NOT NULL,
     stock INT NOT NULL,
     precio INT NOT NULL,
@@ -504,7 +504,7 @@ CREATE TABLE Clientes (
 -- Tabla Ventas
 CREATE TABLE Ventas (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT NOT NULL,
+    id_cliente INT,
     fecha DATE NOT NULL,
     total DOUBLE NOT NULL,
     FOREIGN KEY (id_cliente) REFERENCES Clientes(id)
@@ -513,8 +513,8 @@ CREATE TABLE Ventas (
 -- Tabla Detalle_Ventas
 CREATE TABLE Detalle_Ventas (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_venta INT NOT NULL,
-    id_celular INT NOT NULL,
+    id_venta INT,
+    id_celular INT,
     cantidad INT NOT NULL,
     subtotal DOUBLE NOT NULL,
     FOREIGN KEY (id_venta) REFERENCES Ventas(id),
@@ -569,3 +569,9 @@ Implementar una gestión de excepciones más robusta con validaciones específic
 
 - Implementación de hilos
 Usar hilos para ejecutar tareas en segundo plano, como procesos de base de datos o cálculos, evitando bloqueos del flujo principal y mejorando la eficiencia del sistema.
+
+- Optimización avanzada con funciones y eventos de MySQL
+Aplicar optimizaciones a nivel del gestor de base de datos mediante funciones almacenadas, eventos programados y mejoras en consultas para automatizar procesos y aumentar la eficiencia del sistema.
+
+- Corrección de relaciones foráneas en la base de datos
+Ajustar inconsistencias en llaves foráneas provocadas por implementaciones incompletas en las funciones de Java, ya que actualmente la eliminación de registros puede afectar tablas relacionadas; se recomienda validar dependencias y aplicar eliminaciones controladas antes de usar la opción eliminar en el sistema.
