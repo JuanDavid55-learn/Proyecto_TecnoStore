@@ -561,17 +561,17 @@ INSERT INTO detalle_ventas (id, id_venta, id_celular, cantidad, subtotal) VALUES
 ```
 ### Cosas que podrían mejorar
 
-- Optimización y expansión de la base de datos
+- **Optimización y expansión de la base de datos:**  
 Ampliar y normalizar la estructura actual para soportar mayor volumen de información, además de optimizar consultas e implementar índices que mejoren el rendimiento general.
 
-- Manejo avanzado de errores
+- **Manejo avanzado de errores:**
 Implementar una gestión de excepciones más robusta con validaciones específicas, excepciones personalizadas para aumentar la estabilidad y facilitar el mantenimiento.
 
-- Implementación de hilos
+- **Implementación de hilos:**
 Usar hilos para ejecutar tareas en segundo plano, como procesos de base de datos o cálculos, evitando bloqueos del flujo principal y mejorando la eficiencia del sistema.
 
-- Optimización avanzada con funciones y eventos de MySQL
+- **Optimización avanzada con funciones y eventos de MySQL:**
 Aplicar optimizaciones a nivel del gestor de base de datos mediante funciones almacenadas, eventos programados y mejoras en consultas para automatizar procesos y aumentar la eficiencia del sistema.
 
-- Corrección de relaciones foráneas en la base de datos
+- **Corrección de relaciones foráneas en la base de datos:**
 Ajustar inconsistencias en llaves foráneas provocadas por implementaciones incompletas en las funciones de Java, ya que actualmente la eliminación de registros puede afectar tablas relacionadas; se recomienda validar dependencias y aplicar eliminaciones controladas antes de usar la opción eliminar en el sistema.
