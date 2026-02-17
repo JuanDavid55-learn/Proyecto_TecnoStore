@@ -7,6 +7,7 @@ Controlador\GestionarCelulares.class
 Modelo\celulares.class
 Modelo\Marca.class
 Vista\MenuMarcas.class
+Controlador\ConexiónDB.class
 Controlador\GestiónVentasDAO.class
 Modelo\ventas.class
 Modelo\clientes.class

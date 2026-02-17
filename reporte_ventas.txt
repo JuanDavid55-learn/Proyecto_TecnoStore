@@ -17,3 +17,6 @@ Celular ID: 5 | Modelo: Redmi A3 | Cantidad: 1 | IVA aplicado: 19% | Subtotal: 6
 Venta ID: 5 | Cliente: 4 | Fecha: 2026-06-01 | Total: 600000.0
 Celular ID: 5 | Modelo: Redmi A3 | Cantidad: 1 | IVA aplicado: 19% | Subtotal: 714000.0
 
+Venta ID: 6 | Cliente: 3 | Fecha: 2022-09-12 | Total: 4800000.0
+Celular ID: 3 | Modelo: Redmi Note 13 | Cantidad: 4 | IVA aplicado: 19% | Subtotal: 5712000.0
+
