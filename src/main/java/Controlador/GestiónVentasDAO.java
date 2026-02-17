@@ -1,6 +1,5 @@
 package Controlador;
 
-import MODELO.Gama;
 import Modelo.celulares;
 import Modelo.detalle_ventas;
 import Modelo.ventas;
@@ -14,7 +13,6 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -157,21 +155,6 @@ public class GestiónVentasDAO implements GestiónVentas {
         }
     }
 
-    @Override
-    public ArrayList<celulares> ListarCelStockBajo() {
-        ArrayList<celulares> celsStockBajo = new ArrayList<>();
-        try (Connection con = c.conectar()) {
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM celulares WHERE stock < 5");
-            while (rs.next()) {
-                Gama gama = Gama.valueOf(rs.getString(5).toUpperCase());
-                celsStockBajo.add(new celulares(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), gama, rs.getInt(6), rs.getInt(7)));
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return celsStockBajo;
-    }
 
     @Override
     public ArrayList<String> top3CelularesMasVendidos() {

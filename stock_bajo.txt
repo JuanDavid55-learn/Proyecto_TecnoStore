@@ -1,0 +1,8 @@
+
+
+--- ALERTA DE STOCK BAJO --
+
+Celular ID: 2 | Modelo: iPhone 16 | Marca: Apple | Stock: 4 | Precio: 4500000.0
+
+Celular ID: 4 | Modelo: Moto G100 | Marca: Motorola | Stock: 2 | Precio: 1500000.0
+

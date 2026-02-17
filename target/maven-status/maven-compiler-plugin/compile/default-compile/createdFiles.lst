@@ -7,6 +7,7 @@ Controlador\GestionarCelulares.class
 Modelo\celulares.class
 Modelo\Marca.class
 Vista\MenuMarcas.class
+Controlador\AlertaStockServiceFact.class
 Controlador\ConexiónDB.class
 Controlador\GestiónVentasDAO.class
 Modelo\ventas.class
@@ -14,6 +15,7 @@ Modelo\clientes.class
 Controlador\GestiónVentas.class
 Controlador\GestionClientesDAO.class
 Controlador\GestionMarcasDAO.class
+Controlador\AlertaStockService.class
 Modelo\Gama.class
 Controlador\GestionarCelularesDAO.class
 Vista\MenuCelulares.class

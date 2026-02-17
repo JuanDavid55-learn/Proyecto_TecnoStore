@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.AlertaStockService;
+import Controlador.AlertaStockServiceFact;
 import static Controlador.Funciones.validacion;
 import Controlador.GestionClientes;
 import Controlador.GestionClientesDAO;
@@ -16,6 +18,7 @@ import java.text.DecimalFormat;
 
 public class MenuVentas {
 
+    AlertaStockServiceFact alert = new AlertaStockService();
     GestiónVentas gv = new GestiónVentasDAO();
 
     private void registrarVenta() {
@@ -53,10 +56,8 @@ public class MenuVentas {
     }
 
     private void listarCelsSB() {
-        ArrayList<celulares> celsStockBajo = gv.ListarCelStockBajo();
-        for (celulares a : celsStockBajo) {
-            System.out.println(a);
-        }
+        alert.generarListaCelStockBajo();
+        alert.VerAertaDeStock();
     }
 
     private void listarCelsMasVendidos() {

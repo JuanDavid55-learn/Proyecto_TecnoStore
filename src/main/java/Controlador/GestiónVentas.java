@@ -21,8 +21,6 @@ public interface GestiónVentas {
     void generarReporteVentas();
     
     void VerReporteVentas();
-    
-    ArrayList<celulares> ListarCelStockBajo();
 
     ArrayList<String> top3CelularesMasVendidos();
     
